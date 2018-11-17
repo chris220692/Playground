@@ -50,13 +50,13 @@
     </div>
   <% end %>
     <p><%= link_to 'Home', root_path, class: "btn btn-primary" %></p>
+</div>
 
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <% @players.each do |p| %>
+      <% @players.each do |p| %>
+        <div class="col-xs-12 col-sm-4">
           <%= link_to user_player_path(current_user, p) do %>
-
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
             <div class="card-category">Rating</div>
             <div class="card-description">
@@ -65,9 +65,8 @@
             </div>
             <%= cl_image_tag p.photo, height: 300, width: 400, crop: :fill, crop: :thumb, gravity: :face, class: "card-user" %>
           </div>
+          <% end %>
+          </div>
         <% end %>
-        <% end %>
-      </div>
-
     </div>
-</div>
+  </div>
