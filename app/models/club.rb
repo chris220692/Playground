@@ -1,6 +1,6 @@
 class Club < ApplicationRecord
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :fields
   has_many :events, through: :fields
   validates :user_id, uniqueness: true

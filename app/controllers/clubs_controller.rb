@@ -27,6 +27,7 @@ class ClubsController < ApplicationController
 
   def show
     @club = Club.find(params[:id])
+    @review = Review.new
 
     @markers =
       [{

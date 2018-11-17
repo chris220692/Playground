@@ -34,14 +34,29 @@
   height: 400px;"
   data-markers="<%= @markers.to_json %>"
   ></div>
-
-
 </div>
 
- <div>
-    <%= link_to "fields", club_fields_path(@club), class: "btn btn-primary" %>
-    <%= link_to "Back", clubs_path, class: "btn btn-primary" %>
-  </div>
 
+<h2>
+  <%= @club.name %> has
+  <%= pluralize @club.reviews.size, "review" %>
+</h2>
+
+<div id="reviews">
+  <% if @club.reviews.blank? %>
+    Be the first to leave a review for <%= @club.name %>
+  <% else %>
+    <% @club.reviews.each do |review| %>
+    <%= render 'reviews/show', review: review %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= render 'reviews/form', club: @club, review: @review %>
+
+<div>
+  <%= link_to "fields", club_fields_path(@club), class: "btn btn-primary" %>
+  <%= link_to "Back", clubs_path, class: "btn btn-primary" %>
+</div>
 
 
