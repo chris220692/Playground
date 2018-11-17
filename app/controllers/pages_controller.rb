@@ -37,7 +37,7 @@ class PagesController < ApplicationController
   end
 
   # end revenue for this week
-  #------------------DASHBOARD END-------------------------
+  # ------------------DASHBOARD END-------------------------
   end
 
   private
