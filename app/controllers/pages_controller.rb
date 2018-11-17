@@ -1,20 +1,20 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_field
-
   def home
     # --------------DASHBOARD BEGIN----do not touch-------------
     # All events for a club - dashboard
     if @fields # check if user has fields (prevent crash)
-    @upcoming_events = []
-    @fields.each do |f|
-      if f.events #Check if a field has events
+      @upcoming_events = []
+      @fields.each do |f|
+      if f.events # Check if a field has events
         f.events.each do |e|
           @upcoming_events << e if e.start_date > DateTime.now
           @next_event = @upcoming_events.first
         end
       end
     end
+
     # total revenue for a club
     @total = 0
     @upcoming_events.each do |e|
@@ -28,9 +28,9 @@ class PagesController < ApplicationController
     @fields.each do |f|
       f.events.each do |e|
         if e.start_date > DateTime.now - 7
-          @this_week_revenue += ((e.end_date.to_i - e.start_date.to_i) / 3600) * @field.price.to_i
+          @this_week_revenue += ((e.end_date.to_i - e.start_date.to_i) / 3600) * f.price.to_i
         elsif e.start_date < DateTime.now - 7 && e.start_date > DateTime.now - 14
-          @last_week_revenue += ((e.end_date.to_i - e.start_date.to_i) / 3600) * @field.price.to_i
+          @last_week_revenue += ((e.end_date.to_i - e.start_date.to_i) / 3600) * f.price.to_i
         end
       end
     end
