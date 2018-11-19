@@ -2,6 +2,7 @@ class ClubsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @clubs = Club.all
+    @fields = Field.all
 
     if params[:name].present?
       @clubs = @clubs.where("name ILIKE ?", "%#{params[:name]}%")
@@ -27,6 +28,7 @@ class ClubsController < ApplicationController
 
   def show
     @club = Club.find(params[:id])
+    @review = Review.new
 
     @markers =
       [{

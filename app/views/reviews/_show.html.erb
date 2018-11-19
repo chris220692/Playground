@@ -1,0 +1,8 @@
+<p>
+  <strong><%= review.user.player.try(:first_name) %> <%= review.user.player.try(:last_name) %></strong> has commented :
+  <p>"<%= review.comment %>"</p>
+  <p>Rating :
+    <% review.rating.times do %>
+    <i class="fas fa-star"></i>
+    <% end %>
+</p>

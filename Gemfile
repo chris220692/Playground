@@ -10,8 +10,6 @@ gem 'rails', '5.2.1'
 gem 'redis'
 gem 'pg_search'
 gem 'mailboxer'
-
-
 gem "pundit"
 
 gem 'autoprefixer-rails'

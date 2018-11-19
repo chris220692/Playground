@@ -1,4 +1,5 @@
 
+
     <div class="profile-header-wrapper">
       <div class="container profile-header-container text-center" style="margin-top: 0px">
         <div class="profile-header-infos">
@@ -26,6 +27,10 @@
           </div>
         </div>
       </div>
+
+      <%= link_to "back", user_players_path(current_user), class: "btn btn-primary" %>
+
+
     </div>
   <div class="banner text-center" style="color: black; height: 140px">
   <h3> "<%= @player.description %>"</h3>

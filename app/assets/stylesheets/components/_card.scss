@@ -1,3 +1,12 @@
+.cards-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.club-card :hover {
+  opacity: 0.7;
+}
+
 .card {
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
@@ -5,7 +14,10 @@
   background-position: center;
   color: white;
   position: relative;
+  margin-bottom: 20px;
 }
+
+
 .card-user {
   position: absolute;
   right: 10px;
