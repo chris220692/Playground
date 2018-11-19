@@ -1,6 +1,12 @@
 <% if current_user.club %>
 <link rel="stylesheet" href="sidebar.css">
 <% end %>
+<script type="text/javascript"><!--
+function ReplaceContentInContainer(id,content) {
+var container = document.getElementById(id);
+container.innerHTML = document.getElementById(content).innerHTML;
+}
+//--></script>
 
  <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
@@ -23,12 +29,6 @@
                     </div>
                 </div>
                 <!-- sidebar-header  -->
-                  <script type="text/javascript"><!--
-                  function ReplaceContentInContainer(id,content) {
-                  var container = document.getElementById(id);
-                  container.innerHTML = document.getElementById(content).innerHTML;
-                  }
-                  //--></script>
 
                 <!-- sidebar-search  -->
                 <div class="sidebar-menu">
@@ -37,12 +37,10 @@
                             <span>Navigation</span>
                         </li>
                         <li class="sidebar-dropdown">
-                            <div>
-                                <a href="#">
+                                <%= link_to root_path do  %>
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>DASHBOARD</span>
-
-                            </a>
+                            <% end %>
                         </li>
                         <li class="sidebar-dropdown">
                             <a href="javascript:ReplaceContentInContainer('dashrender','fieldrender')">
@@ -53,10 +51,9 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="#">Add a new field</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Fields</a>
+                                      <%= link_to new_club_field_path(@club) do  %>
+                                       New Field
+                                        <% end %>
                                     </li>
                                 </ul>
                             </div>
@@ -73,10 +70,10 @@
                             <span>Account</span>
                         </li>
                         <li>
-                            <a href="#">
+                            <%= link_to destroy_user_session_path, method: :delete do  %>
                                 <i class="fas fa-user-circle"></i>
                                 <span>Log-out</span>
-                            </a>
+                            <% end %>
                         </li>
                         <li>
                             <a href="#">
@@ -100,7 +97,7 @@
         <main class="page-content" id="dashrender">
            <!-- page-wrapper -->
             <!--DASHBOARD ITEM CARD-->
-              <div id ="boardrender">
+              <div>
                       <div class="container dashcontainer">
                         <div class="row">
                             <div class="col-md-3">
@@ -188,7 +185,7 @@
 
 <!------------------FIELDS RENDERING------------------------>
 <div id="fieldrender">
-      <div class="container">
+
         <div class="row">
       <% num = 1 %>
       <% @fields.each do |f| %>
@@ -233,11 +230,12 @@
         <% end %>
 </div>
 </div>
-</div>
+
 <!---------------END FIELD RENDERING----------->
 <!--------------------CALENDAR RENDER------------->
 <div id="calendarrender">
   CALENDARRENDER
 </div>
-<!-----END CALENDAR RENDER--------------------_>
+<!-----END CALENDAR RENDER-------------------->
+
 
