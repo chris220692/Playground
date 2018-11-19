@@ -23,46 +23,46 @@
 <!---------END TOP CARD----------->
 <div class="container">
   <div class="row">
-<% num = 1 %>
-<% @fields.each do |f| %>
-  <!----PANEL UNIT---->
-  <div class="col-sm-4">
-  <div class="panel panel-default">
-  <!----STORING EVENTS FOR THIS FIELD----->
-  <% if f.events #Check if a field has events
-      @upcoming_events = []
-      f.events.each do |e|
-        if e.start_date > DateTime.now
-          @upcoming_events << e
-        end
-      end
-    @next_event = @upcoming_events.first
-    if @next_event #check if next is not nil
-      t = @next_event.start_date
-      et = @next_event.end_date
-    end %>
+    <% num = 1 %>
+    <% @fields.each do |f| %>
+      <!----PANEL UNIT---->
+      <div class="col-sm-4">
+      <div class="panel panel-default">
+      <!----STORING EVENTS FOR THIS FIELD----->
+      <% if f.events #Check if a field has events
+          @upcoming_events = []
+          f.events.each do |e|
+            if e.start_date > DateTime.now
+              @upcoming_events << e
+            end
+          end
+        @next_event = @upcoming_events.first
+        if @next_event #check if next is not nil
+          t = @next_event.start_date
+          et = @next_event.end_date
+        end %>
 
-  <!----END STORING EVENTS FOR THIS FIELD--->
-  <div class="panel-heading">
-    <h2>Field <%= num %></h2> <% num += 1 %>
-    <p><%= f.field_type %></p>
-  </div>
-  <div class="panel-body">
-      <% if @next_event #check if next event is not nil %>
-        <p>next reservation: <%= t.hour %>:<%= t.min  %><%= "0" if t.min == 0 %> - <%= t.day %>/<%= t.month %>/<%= t.year%> </p>
-        <p>by: <%= @next_event.user.email  %></p>
-        <p>for: <%= (et.to_i - t.to_i )/3600 %> hours</p>
-        <p>fee: €<%= ((et.to_i - t.to_i )/3600)*f.price.to_i %></p>
-      <% else %>
-        <p>There are no upcoming reservations on this field yet</p>
-      <% end %>
-      <button id="hide-calendar">Show Calendar</button>
+        <!----END STORING EVENTS FOR THIS FIELD--->
+        <div class="panel-heading">
+          <h2>Field <%= num %></h2> <% num += 1 %>
+          <p><%= f.field_type %></p>
+        </div>
+        <div class="panel-body">
+            <% if @next_event #check if next event is not nil %>
+              <p>next reservation: <%= t.hour %>:<%= t.min  %><%= "0" if t.min == 0 %> - <%= t.day %>/<%= t.month %>/<%= t.year%> </p>
+              <p>by: <%= @next_event.user.email  %></p>
+              <p>for: <%= (et.to_i - t.to_i )/3600 %> hours</p>
+              <p>fee: €<%= ((et.to_i - t.to_i )/3600)*f.price.to_i %></p>
+            <% else %>
+              <p>There are no upcoming reservations on this field yet</p>
+            <% end %>
+            <button id="hide-calendar">Show Calendar</button>
 
-  <div id="calendar" data-target="<%= @events %>" style="display:none">
+        <div id="calendar" data-target="<%= @events %>" style="display:none">
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</div>
 
 
   <!----PANEL END----->
