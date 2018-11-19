@@ -1,27 +1,32 @@
 <div class="container">
 
   <h1>CLUBS/SHOW</h1>
-
   <p id="notice"><%= notice %></p>
-
   <p><strong>About this Club</strong></p>
   <ul>
-    <strong><%= @club.name %></strong>
-    <li><%= @club.address %></li>
 
-    <% if @club.reviews.count > 0 %>
-      <% a = [] %>
-      <% @club.reviews.each do |r|  %>
-        <%  a << r.rating %>
-      <% end %>
-    <%= link_to club_reviews_path(@club) do %>
-      <li>average rating:</li>
-      <% b = a.inject{ |sum, el| sum + el } / a.size %>
-        <% b.times do %>
-          <i class="fas fa-star"></i>
+  <div class="cards-container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <strong><%= link_to @club.name, club_path(@club) %></strong>
+        <li><%= @club.address %></li>
+
+        <% if @club.reviews.count > 0 %>
+          <% a = [] %>
+          <% @club.reviews.each do |r|  %>
+            <%  a << r.rating %>
+          <% end %>
+        <%= link_to club_reviews_path(@club) do %>
+          <li>average rating:</li>
+          <% b = a.inject{ |sum, el| sum + el } / a.size %>
+            <% b.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          <% end %>
         <% end %>
-      <% end %>
-    <% end %>
+      </div>
+    </div>
+  </div>
   </ul>
 
   <% if current_user == @club.user  %>
@@ -29,10 +34,10 @@
     <% end %>
 
   <div
-  id="map"
-  style="width: 50%;
-  height: 400px;"
-  data-markers="<%= @markers.to_json %>"
+    id="map"
+    style="width: 50%;
+    height: 400px;"
+    data-markers="<%= @markers.to_json %>"
   ></div>
 </div>
 
@@ -55,8 +60,11 @@
 <%= render 'reviews/form', club: @club, review: @review %>
 
 <div>
+  <%= link_to "Edit", edit_club_path(@club),class: "btn btn-primary" %>
   <%= link_to "fields", club_fields_path(@club), class: "btn btn-primary" %>
   <%= link_to "Back", clubs_path, class: "btn btn-primary" %>
 </div>
+
+
 
 
