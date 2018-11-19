@@ -46,38 +46,35 @@
           <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
 
 <!--*DASHBOAD CARDS ENDS-->
+<div class="container">
+<script>
+window.onload = function () {
 
-<!-----GRAPH------>
-<div class="container dashcontainer">
-<ul class="bar-graph">
-  <li class="bar-graph-axis">
-    <div class="bar-graph-label">100%</div>
-    <div class="bar-graph-label">80%</div>
-    <div class="bar-graph-label">60%</div>
-    <div class="bar-graph-label">40%</div>
-    <div class="bar-graph-label">20%</div>
-    <div class="bar-graph-label">0%</div>
-  </li>
-  <li class="bar primary" style="height: 95%;" title="95">
-    <div class="percent">95<span>%</span></div>
-    <div class="description">Yetis</div>
-  </li>
-  <li class="bar secondary" style="height: 90%;" title="90">
-    <div class="percent">90<span>%</span></div>
-    <div class="description">ZURBians</div>
-  </li>
-  <li class="bar success" style="height: 80%;" title="80">
-    <div class="percent">80<span>%</span></div>
-    <div class="description">Cows</div>
-  </li>
-  <li class="bar warning" style="height: 75%;" title="75">
-    <div class="percent">75<span>%</span></div>
-    <div class="description">Cows that think they're Yetis</div>
-  </li>
-  <li class="bar alert" style="height: 40%;" title="40">
-    <div class="percent">40<span>%</span></div>
-    <div class="description">Who knows</div>
-  </li>
-</ul>
+var chart = new CanvasJS.Chart("chartContainer", {
+  animationEnabled: true,
+  theme: "light2",
+  title:{
+    text: "Weekly users"
+  },
+  axisY:{
+    includeZero: false
+  },
+  data: [{
+    type: "line",
+    dataPoints: [
+      { y: <%= @week1.count %> },
+      { y: <%= @week2.count %> },
+      { y: <%= @week3.count %> },
+      { y: <%= @week4.count %> },
+      { y: <%= @week5.count %> },
+      { y: <%= @week6.count %> },
+      ]
+  }]
+});
+chart.render();
+
+}
+</script>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </div>
-<!---------END GRAPH------->
