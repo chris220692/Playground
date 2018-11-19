@@ -60,8 +60,11 @@
 <%= render 'reviews/form', club: @club, review: @review %>
 
 <div>
+  <%= link_to "Edit", edit_club_path(@club),class: "btn btn-primary" %>
   <%= link_to "fields", club_fields_path(@club), class: "btn btn-primary" %>
   <%= link_to "Back", clubs_path, class: "btn btn-primary" %>
 </div>
+
+
 
 

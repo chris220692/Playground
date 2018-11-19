@@ -5,6 +5,8 @@
   end
 
   def show
+    @player = Player.find(parmas[:player_id])
+    @review = Review.find(params[:id])
   end
 
   # def new
