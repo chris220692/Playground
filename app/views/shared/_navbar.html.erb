@@ -17,7 +17,7 @@
       <!-- Links when user is a player -->
       <% if @user.is_player %>
 
-        <% if current_user.player.first_name.nil? %>
+        <% if current_user.player.nil? %>
 
         <% else %>
           <%= link_to "Browse Clubs", clubs_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -29,7 +29,7 @@
         <div class="navbar-wagon-item">
           <div class="dropdown">
 
-            <% if current_user.player.id.nil? %>
+            <% if current_user.player.nil? %>
               <div id="navbar-wagon-menu" class="avatar dropdown-toggle" style="width:40px" data-toggle="dropdown"><i class="fas fa-user-circle"></i></div>
 
             <% else %>
