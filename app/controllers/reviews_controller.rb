@@ -5,6 +5,8 @@
   end
 
   def show
+    @player = Player.find(parmas[:player_id])
+    @review = Review.find(params[:id])
   end
 
   # def new
@@ -33,6 +35,6 @@
   private
 
   def reviews_params
-    params.require(:review).permit(:rating, :comment, :club_id, :user_id)
+    params.require(:review).permit(:rating, :comment, :club_id, :user_id, :player_id)
   end
 end
