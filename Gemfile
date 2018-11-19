@@ -12,6 +12,7 @@ gem 'pg_search'
 gem 'mailboxer'
 
 
+
 gem "pundit"
 
 gem 'autoprefixer-rails'

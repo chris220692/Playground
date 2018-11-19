@@ -1,44 +1,83 @@
 <!--DASHBOARD ITEM CARD-->
+          <div class="container dashcontainer">
+            <div class="row">
+                <div class="col-md-3">
+                  <div class="card-item">
+                      <i class="fas fa-dollar-sign ic a"></i>
+                      <h1 class="title">€<%= @this_week_revenue  %></h1>
+                      <p>WEEK REVENUE</p>
+                  </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card-item">
+                  <i class="fas fa-chart-bar ic b"></i>
+                  <% if @last_week_revenue != 0 %>
+                  <h1 class="title"><%= (@last_week_revenue - @this_week_revenue)/(@last_week_revenue *100)  %>%</h1>
+                  <% else %>
+                <h1>No info available</h1>
+                  <% end %>
+                  <p>REVENUE DIFFERENCE</p>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card-item">
+                  <i class="fas fa-dollar-sign ic c"></i>
+                  <h1 class="title">€<%= @total %></h1>
+                  <p>PROJECTED REVENUE</p>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card-item">
+                  <i class="fas fa-user-plus ic d"></i>
+                  <h1 class="title"><%= @upcoming_events.count  %></h1>
+                  <p>TOTAL BOOKINGS</p>
+              </div>
+            </div>
+
+            </div>
+          </div>
+
+
+          <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+          <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+<!--*DASHBOAD CARDS ENDS-->
+
+<!-----GRAPH------>
 <div class="container dashcontainer">
-  <div class="row">
-      <div class="col-md-3">
-    <div class="card-item">
-        <i class="fas fa-dollar-sign ic a"></i>
-        <h1 class="title">$20.000</h1>
-        <p>TODAY REVENUE</p>
-    </div>
-  </div>
-
-  <div class="col-md-3">
-    <div class="card-item">
-        <i class="fas fa-shopping-cart ic b"></i>
-        <h1 class="title">2000</h1>
-        <p>ORDER</p>
-    </div>
-  </div>
-
-  <div class="col-md-3">
-    <div class="card-item">
-        <i class="fas fa-dollar-sign ic c"></i>
-        <h1 class="title">$93.000</h1>
-        <p>SALES</p>
-    </div>
-  </div>
-
-  <div class="col-md-3">
-    <div class="card-item">
-        <i class="fas fa-user-plus ic d"></i>
-        <h1 class="title">193,000</h1>
-        <p>VISITORS</p>
-    </div>
-  </div>
-
-  </div>
+<ul class="bar-graph">
+  <li class="bar-graph-axis">
+    <div class="bar-graph-label">100%</div>
+    <div class="bar-graph-label">80%</div>
+    <div class="bar-graph-label">60%</div>
+    <div class="bar-graph-label">40%</div>
+    <div class="bar-graph-label">20%</div>
+    <div class="bar-graph-label">0%</div>
+  </li>
+  <li class="bar primary" style="height: 95%;" title="95">
+    <div class="percent">95<span>%</span></div>
+    <div class="description">Yetis</div>
+  </li>
+  <li class="bar secondary" style="height: 90%;" title="90">
+    <div class="percent">90<span>%</span></div>
+    <div class="description">ZURBians</div>
+  </li>
+  <li class="bar success" style="height: 80%;" title="80">
+    <div class="percent">80<span>%</span></div>
+    <div class="description">Cows</div>
+  </li>
+  <li class="bar warning" style="height: 75%;" title="75">
+    <div class="percent">75<span>%</span></div>
+    <div class="description">Cows that think they're Yetis</div>
+  </li>
+  <li class="bar alert" style="height: 40%;" title="40">
+    <div class="percent">40<span>%</span></div>
+    <div class="description">Who knows</div>
+  </li>
+</ul>
 </div>
-
-
-<!--*DASHBOAD ENDS-->
-
-<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+<!---------END GRAPH------->

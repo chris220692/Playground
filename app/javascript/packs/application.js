@@ -27,3 +27,5 @@ var divelement = document.getElementById(id);
   }
 }
 document.getElementById('hide-calendar').addEventListener('click', function() { toggle_div_hide('calendar') })
+
+
