@@ -20,7 +20,7 @@ container.innerHTML = document.getElementById(content).innerHTML;
                         <i class="fas fa-times"></i>
                     </div>
                 </div>
-                <div class="sidebar-header clubimage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @club.photo%>'); background-size: cover; height: 125px;">
+                <div class="sidebar-header clubimage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @club.photo%>'); background-size: cover; height: 125px; font-size: 18px;">
                     <div class="user-info">
                         <span class="user-name">
                             <strong><%= @club.name %></strong>
@@ -31,7 +31,7 @@ container.innerHTML = document.getElementById(content).innerHTML;
                 <!-- sidebar-header  -->
 
                 <!-- sidebar-search  -->
-                <div class="sidebar-menu">
+                <div class="sidebar-menu" style="font-size: 16px;">
                     <ul>
                         <li class="header-menu">
                             <span>Navigation</span>
@@ -39,13 +39,13 @@ container.innerHTML = document.getElementById(content).innerHTML;
                         <li class="sidebar-dropdown">
                                 <%= link_to root_path do  %>
                                 <i class="fa fa-tachometer-alt"></i>
-                                <span>DASHBOARD</span>
+                                <span>  Dashboard</span>
                             <% end %>
                         </li>
                         <li class="sidebar-dropdown">
                             <a href="javascript:ReplaceContentInContainer('dashrender','fieldrender')">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>FIELDS</span>
+                                <span>  Fields</span>
 
                             </a>
                             <div class="sidebar-submenu">
@@ -61,31 +61,31 @@ container.innerHTML = document.getElementById(content).innerHTML;
                         <li class="sidebar-dropdown">
                             <a href="javascript:ReplaceContentInContainer('dashrender','calendarrender')">
                                 <i class="fas fa-calendar-alt"></i>
-                                <span>CALENDAR</span>
+                                <span>  Calendar</span>
                             </a>
 
                         </li>
 
-                        <li class="header-menu">
+                        <li class="header-menu" >
                             <span>Account</span>
                         </li>
                         <li>
                             <%= link_to destroy_user_session_path, method: :delete do  %>
                                 <i class="fas fa-user-circle"></i>
-                                <span>Log-out</span>
+                                <span style="font-size:14px;">  Log-out</span>
                             <% end %>
                         </li>
                         <li>
-                            <a href="#">
+                            <%= link_to new_club_field_path(@club) do %>
                                 <i class="fas fa-plus"></i>
-                                <span>Add a new field</span>
-                            </a>
+                                <span style="font-size:14px;">  Add a new field</span>
+                            <% end %>
                         </li>
                         <li>
-                            <a href="#">
+                            <%= link_to clubs_path  do %>
                                 <i class="fas fa-list-ul"></i>
-                                <span>Browse clubs</span>
-                            </a>
+                                <span style="font-size:14px;">  Browse clubs</span>
+                              <% end %>
                         </li>
                     </ul>
                 </div>
@@ -102,37 +102,37 @@ container.innerHTML = document.getElementById(content).innerHTML;
                         <div class="row">
                             <div class="col-md-3">
                               <div class="card-item">
-                                  <i class="fas fa-dollar-sign ic a"></i>
+                                  <i class="fas fa-dollar-sign ic a" style="font-size: 18px;"></i>
                                   <h1 class="title">€<%= @this_week_revenue  %></h1>
-                                  <p>WEEK REVENUE</p>
+                                  <p style="font-size: 14px">WEEK REVENUE</p>
                               </div>
                         </div>
 
                         <div class="col-md-3">
                           <div class="card-item">
-                              <i class="fas fa-chart-bar ic b"></i>
+                              <i class="fas fa-chart-bar ic b" style="font-size: 18px;"></i>
                               <% if @last_week_revenue != 0 %>
                               <h1 class="title"><%= (@last_week_revenue - @this_week_revenue)/(@last_week_revenue *100)  %>%</h1>
                               <% else %>
                             <h1>No info available</h1>
                               <% end %>
-                              <p>REVENUE DIFFERENCE</p>
+                              <p style="font-size: 12px">REVENUE DIFFERENCE</p>
                           </div>
                         </div>
 
                         <div class="col-md-3">
                           <div class="card-item">
-                              <i class="fas fa-dollar-sign ic c"></i>
+                              <i class="fas fa-dollar-sign ic c" style="font-size: 18px;"></i>
                               <h1 class="title">€<%= @total %></h1>
-                              <p>PROJECTED REVENUE</p>
+                              <p style="font-size: 12px">PROJECTED REVENUE</p>
                           </div>
                         </div>
 
                         <div class="col-md-3">
                           <div class="card-item">
-                              <i class="fas fa-user-plus ic d"></i>
+                              <i class="fas fa-user-plus ic d" style="font-size: 18px;"></i>
                               <h1 class="title"><%= @upcoming_events.count  %></h1>
-                              <p>TOTAL BOOKINGS</p>
+                              <p style="font-size: 12px">TOTAL BOOKINGS</p>
                           </div>
                         </div>
 
@@ -213,13 +213,16 @@ container.innerHTML = document.getElementById(content).innerHTML;
         </div>
         <div class="panel-body fieldcard">
             <% if @next_event #check if next event is not nil %>
-              <p>next reservation: <%= t.hour %>:<%= t.min  %><%= "0" if t.min == 0 %> - <%= t.day %>/<%= t.month %>/<%= t.year%> </p>
-              <p>by: <%= @next_event.user.email  %></p>
-              <p>for: <%= (et.to_i - t.to_i )/3600 %> hours</p>
-              <p>fee: €<%= ((et.to_i - t.to_i )/3600)*f.price.to_i %></p>
+            <ul>
+              <p><b>next reservation:</b>  <%= t.hour %>:<%= t.min  %><%= "0" if t.min == 0 %> - <%= t.day %>/<%= t.month %>/<%= t.year%> </p>
+              <p><i class="fas fa-male"></i>   <%= @next_event.user.email  %></p>
+              <p><i class="far fa-clock"></i>   <%= (et.to_i - t.to_i )/3600 %> hours</p>
+              <p><i class="fas fa-dollar-sign"></i>   €<%= ((et.to_i - t.to_i )/3600)*f.price.to_i %></p>
+
             <% else %>
-              <p>There are no upcoming reservations on this field yet</p>
+              <p style= "height: 130px">There are no upcoming reservations on this field yet</p>
             <% end %>
+
             </div>
           </div>
         </div>
