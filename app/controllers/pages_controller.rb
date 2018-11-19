@@ -19,7 +19,6 @@ class PagesController < ApplicationController
     @upcoming_events.sort_by!{ |obj| obj.start_date }
     @past_events.sort_by!{ |obj| obj.start_date }
 
-
     # for graph ----PAST EVENTS
     @week1 = []
     @week2 = []
