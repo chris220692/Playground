@@ -1,12 +1,6 @@
 <% if current_user.club %>
 <link rel="stylesheet" href="sidebar.css">
 <% end %>
-<script type="text/javascript"><!--
-function ReplaceContentInContainer(id,content) {
-var container = document.getElementById(id);
-container.innerHTML = document.getElementById(content).innerHTML;
-}
-//--></script>
 
  <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
@@ -37,29 +31,31 @@ container.innerHTML = document.getElementById(content).innerHTML;
                             <span>Navigation</span>
                         </li>
                         <li class="sidebar-dropdown">
-                                <%= link_to root_path do  %>
+                            <a href="#">
                                 <i class="fa fa-tachometer-alt"></i>
                                 <span>DASHBOARD</span>
-                            <% end %>
+                                <span class="badge badge-pill badge-danger">New</span>
+                            </a>
                         </li>
                         <li class="sidebar-dropdown">
-                            <a href="javascript:ReplaceContentInContainer('dashrender','fieldrender')">
+                            <a href="#">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <span>FIELDS</span>
-
+                                <span class="badge badge-pill badge-primary"><%= @fields.count  %></span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                      <%= link_to new_club_field_path(@club) do  %>
-                                       New Field
-                                        <% end %>
+                                        <a href="#">Add a new field</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Fields</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="sidebar-dropdown">
-                            <a href="javascript:ReplaceContentInContainer('dashrender','calendarrender')">
+                            <a href="#">
                                 <i class="fas fa-calendar-alt"></i>
                                 <span>CALENDAR</span>
                             </a>
@@ -70,10 +66,10 @@ container.innerHTML = document.getElementById(content).innerHTML;
                             <span>Account</span>
                         </li>
                         <li>
-                            <%= link_to destroy_user_session_path, method: :delete do  %>
+                            <a href="#">
                                 <i class="fas fa-user-circle"></i>
                                 <span>Log-out</span>
-                            <% end %>
+                            </a>
                         </li>
                         <li>
                             <a href="#">
@@ -94,10 +90,17 @@ container.innerHTML = document.getElementById(content).innerHTML;
             <!-- sidebar-content  -->
         </nav>
         <!-- sidebar-wrapper  -->
+           <script type="text/javascript"><!--
+          function ReplaceContentInContainer(id,content) {
+          var container = document.getElementById(id);
+          container.innerHTML = content;
+          }
+          //--></script>
         <main class="page-content" id="dashrender">
            <!-- page-wrapper -->
+
+
             <!--DASHBOARD ITEM CARD-->
-              <div>
                       <div class="container dashcontainer">
                         <div class="row">
                             <div class="col-md-3">
@@ -178,64 +181,6 @@ container.innerHTML = document.getElementById(content).innerHTML;
             <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
             </div>
 
-        </div>
         </main>
         <!-- page-content" -->
     </div>
-
-<!------------------FIELDS RENDERING------------------------>
-<div id="fieldrender">
-
-        <div class="row">
-      <% num = 1 %>
-      <% @fields.each do |f| %>
-        <!----PANEL UNIT---->
-        <div class="col-sm-4">
-        <div class="panel panel-default">
-        <!----STORING EVENTS FOR THIS FIELD----->
-        <% if f.events #Check if a field has events
-            @upcoming_events = []
-            f.events.each do |e|
-              if e.start_date > DateTime.now
-                @upcoming_events << e
-              end
-            end
-          @next_event = @upcoming_events.first
-          if @next_event #check if next is not nil
-            t = @next_event.start_date
-            et = @next_event.end_date
-          end %>
-
-        <!----END STORING EVENTS FOR THIS FIELD--->
-        <div class="panel-heading">
-          <h2>Field <%= num %></h2> <% num += 1 %>
-          <p><%= f.field_type %></p>
-        </div>
-        <div class="panel-body">
-            <% if @next_event #check if next event is not nil %>
-              <p>next reservation: <%= t.hour %>:<%= t.min  %><%= "0" if t.min == 0 %> - <%= t.day %>/<%= t.month %>/<%= t.year%> </p>
-              <p>by: <%= @next_event.user.email  %></p>
-              <p>for: <%= (et.to_i - t.to_i )/3600 %> hours</p>
-              <p>fee: €<%= ((et.to_i - t.to_i )/3600)*f.price.to_i %></p>
-            <% else %>
-              <p>There are no upcoming reservations on this field yet</p>
-            <% end %>
-            </div>
-          </div>
-        </div>
-
-
-        <!----PANEL END----->
-          <% end  %>
-        <% end %>
-</div>
-</div>
-
-<!---------------END FIELD RENDERING----------->
-<!--------------------CALENDAR RENDER------------->
-<div id="calendarrender">
-  CALENDARRENDER
-</div>
-<!-----END CALENDAR RENDER-------------------->
-
-

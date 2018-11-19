@@ -41,6 +41,9 @@
 body {
   font-size: 0.9rem;
 }
+
+
+
 .page-wrapper .sidebar-wrapper,
 .sidebar-wrapper .sidebar-brand > a,
 .sidebar-wrapper .sidebar-dropdown > a:after,
@@ -158,6 +161,7 @@ body {
 .sidebar-wrapper .sidebar-header {
   padding: 20px;
   overflow: hidden;
+
 }
 
 .sidebar-wrapper .sidebar-header .user-pic {
@@ -177,10 +181,12 @@ body {
 
 .sidebar-wrapper .sidebar-header .user-info {
   float: left;
+
 }
 
 .sidebar-wrapper .sidebar-header .user-info > span {
   display: block;
+
 }
 
 .sidebar-wrapper .sidebar-header .user-info .user-role {
@@ -412,6 +418,8 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-search,
 .chiller-theme .sidebar-wrapper .sidebar-menu {
     border-top: 1px solid #2b2b2b;
+
+
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
@@ -428,6 +436,7 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
 .chiller-theme .sidebar-footer>a {
     color: #bdbdbd;
+    background-size: cover;
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-menu ul li:hover>a,
