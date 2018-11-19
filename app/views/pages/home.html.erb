@@ -84,6 +84,7 @@
 <% elsif current_user.club  %>
 <!----WHEN USER IS A CLUBOWNER--->
 <%= render 'shared/dashboard' %>
-
+<% else %>
+<%= render 'shared/home_page_club' %>
 
 <% end %>
