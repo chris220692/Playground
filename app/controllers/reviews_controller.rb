@@ -33,6 +33,6 @@
   private
 
   def reviews_params
-    params.require(:review).permit(:rating, :comment, :club_id, :user_id)
+    params.require(:review).permit(:rating, :comment, :club_id, :user_id, :player_id)
   end
 end
