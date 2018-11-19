@@ -9,22 +9,33 @@
 
 .card {
   height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
   margin-bottom: 20px;
+  box-shadow: 2px 2px 9px 0px rgba(0,0,0,0.4);
+  background-color: white;
+  border-radius: 2%;
+}
+.card_players{
+  height: 175px;
+  background-size: cover !important;
+  background-position: center;
+  color: black;
+  position: relative;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 9px 0px rgba(0,0,0,0.4);
+  background-color: white;
+  border-radius: 2%;
 }
 
-
 .card-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
+  text-align: center;
+  margin-top: 10px;
 }
 .card-category {
   position: absolute;
@@ -35,11 +46,11 @@
 }
 .card-description {
   position: absolute;
-  bottom: 10px;
+  bottom: -5px;
   left: 10px;
 }
 .card-description h2 {
-  font-size: 24px;
+  font-size: 20px;
 }
 .card-description p {
   font-size: 14px;
@@ -58,4 +69,12 @@
 }
 .card-link:hover {
   opacity: 0.1;
+}
+.card_home_page {
+ height: 175px;
+  background-size: cover !important;
+  background-position: center;
+  color: black;
+  position: relative;
+  margin-bottom: 20px;
 }

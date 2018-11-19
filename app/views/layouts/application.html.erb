@@ -12,9 +12,11 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <% if current_user.club %>
-    <% else %>
-    <%= render 'shared/navbar' %>
+    <% if user_signed_in? %>
+      <% if current_user.club %>
+      <% else %>
+      <%= render 'shared/navbar' %>
+      <% end %>
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
