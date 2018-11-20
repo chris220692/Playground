@@ -26,17 +26,17 @@ class PlayersController < ApplicationController
   end
 
   def new
-      @user = current_user
-      @clubs = Club.all
-      @player = Player.new
-      authorize @player
+    @user = current_user
+    @clubs = Club.all
+    @player = Player.new
+    authorize @player
   end
 
   def show
     @player = Player.find(params[:id])
     authorize @player
+    @events = Event.all
   end
-
 
   def create
     @player = Player.new(player_params)

@@ -1,8 +1,13 @@
+<%= content_for :title do  %>
+New message - Playgrounds
+<% end %>
 <h1>New conversation</h1>
 <%= form_tag conversations_path, method: :post do %>
 
   <div>
-    <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name ) %>
+
+    <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :email)   %>
+
   </div>
 
   <div>
@@ -10,7 +15,7 @@
   </div>
 
   <div>
-    <%= text_area_tag :body, nil, placeholder: "Leave a comment " %>
+    <%= text_area_tag :body, nil, placeholder: "Leave a comment" %>
   </div>
   <%= submit_tag 'Create new conversation', class: "btn btn-success" %>
 
