@@ -35,6 +35,7 @@ class PlayersController < ApplicationController
   def show
     @player = Player.find(params[:id])
     authorize @player
+    @events = Event.all
   end
 
 
