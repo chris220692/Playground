@@ -40,6 +40,7 @@
     <h3>Book fast - Play Well</h3>
     <% if current_user %>
       <a class="btn btn-clear btn-sm btn-min-block" href="<%= clubs_path %>">Find a field</a>
+      <a class="btn btn-clear btn-sm btn-min-block" href="<%= user_players_path(@user) %>">Find a partner</a>
     <% else %>
       <a class="btn btn-clear btn-sm btn-min-block" href="<%= new_user_session_path %>">Login</a>
       <a class="btn btn-clear btn-sm btn-min-block"href="<%=new_user_registration_path %>">Registration</a>
