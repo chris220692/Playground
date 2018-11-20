@@ -2,6 +2,7 @@ class ClubsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @clubs = Club.all
+    # @club = Club.find(params[:id])
     @fields = Field.all
 
     if params[:name].present?
