@@ -72,9 +72,9 @@ container.innerHTML = document.getElementById(content).innerHTML;
                             <span>Account</span>
                         </li>
                         <li>
-                            <%= link_to destroy_user_session_path, method: :delete do  %>
-                                <i class="fas fa-user-circle"></i>
-                                <span style="font-size:14px;">  Log-out</span>
+                            <%= link_to conversations_path do  %>
+                                <i class="fas fa-comments"></i>
+                                <span style="font-size:14px;">  Messages</span>
                             <% end %>
                         </li>
                         <li>
@@ -88,6 +88,12 @@ container.innerHTML = document.getElementById(content).innerHTML;
                                 <i class="fas fa-list-ul"></i>
                                 <span style="font-size:14px;">  Browse clubs</span>
                               <% end %>
+                        </li>
+                        <li>
+                            <%= link_to destroy_user_session_path, method: :delete do  %>
+                                <i class="fas fa-user-circle"></i>
+                                <span style="font-size:14px;">  Log-out</span>
+                            <% end %>
                         </li>
                     </ul>
                 </div>
