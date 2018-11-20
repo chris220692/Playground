@@ -9,6 +9,7 @@
 @import "avatar";
 @import "message";
 @import "review";
+@import "card_club_index";
 
 
 .container {
@@ -17,6 +18,17 @@
   margin-right: 150px;
   margin-left: 150px;
 }
+
+.main-container {
+  background-image: url('ryan.jpg');
+  background-size: 100%;
+}
+
+.clubs-container {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
 
 body {
   margin: 0;

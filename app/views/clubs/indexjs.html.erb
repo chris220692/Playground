@@ -1,0 +1,49 @@
+<div class="card-category">
+                    <h4><%= f.user.club.name %></h4>
+                  </div>
+                  <div class="card-description">
+                    <h5><%= f.user.club.city %></h5>
+
+                      <% ratings = f.user.club.reviews.map do |review| %>
+                        <% review.rating %>
+                      <% end %>
+                      <% if ratings == [] %>
+                        <p>Add a rating</p>
+                      <% else %>
+                        <% (ratings.sum/ratings.size).times do %>
+                          <i class="fas fa-star"></i>
+                        <% end %>
+                      <% end %>
+                  </div>
+                  <div class="field-sport">
+                    <% if f.field_type == "Tennis" %>
+                      <%= image_tag "tennis.jpeg", class: "card-sport" %>
+                    <%  elsif f.field_type == "Padel" %>
+                      <%= image_tag "padel3.jpg", class: "card-sport" %>
+                    <% else %>
+                      <%= image_tag "squash.jpg", class: "card-sport" %>
+                    <% end %>
+                  </div>
+
+                  <div class="card-hidden">
+                    <ul>
+                      <h5 class="center-card-club-hidden-address">Addresse: <%= f.user.club.address %></h5>
+                      <p class="center-card-club-hidden-price">Price: <%= f.price %> €</p>
+                      <%= link_to "Book your court", new_club_field_event_path(current_user.club, f), class: "btn btn-primary corner-right-bottom" %>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+  id="map" class="clubs-index"
+  data-markers="<%= @markers.to_json %>"
+  data-spy="affix" data-offset-top="197"
+  ></div>
+</div>
+
+
