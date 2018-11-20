@@ -13,9 +13,6 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-
-
-
     <% unless user_signed_in? && current_page?(root_path) && current_user.club %>
       <%= render 'shared/navbar' %>
     <% end %>

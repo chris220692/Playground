@@ -1,6 +1,4 @@
-//= require jquery
+//= require_tree .
 //= require rails-ujs
 //= require moment
 //= require bootstrap.min
-//= require bootstrap-datetimepicker
-//= require_tree .
