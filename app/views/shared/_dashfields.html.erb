@@ -1,12 +1,6 @@
 <% if current_user.club %>
 <link rel="stylesheet" href="sidebar.css">
 <% end %>
-<script type="text/javascript"><!--
-function ReplaceContentInContainer(id,content) {
-var container = document.getElementById(id);
-container.innerHTML = document.getElementById(content).innerHTML;
-}
-//--></script>
 
  <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
@@ -20,7 +14,7 @@ container.innerHTML = document.getElementById(content).innerHTML;
                         <i class="fas fa-times"></i>
                     </div>
                 </div>
-                <div class="sidebar-header clubimage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @club.photo%>'); background-size: cover; height: 125px; font-size: 18px;">
+                <div class="sidebar-header clubimage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @club.photo%>'); background-size: cover; height: 125px;">
                     <div class="user-info">
                         <span class="user-name">
                             <strong><%= @club.name %></strong>
@@ -31,61 +25,63 @@ container.innerHTML = document.getElementById(content).innerHTML;
                 <!-- sidebar-header  -->
 
                 <!-- sidebar-search  -->
-                <div class="sidebar-menu" style="font-size: 16px;">
+                <div class="sidebar-menu">
                     <ul>
                         <li class="header-menu">
                             <span>Navigation</span>
                         </li>
                         <li class="sidebar-dropdown">
-                                <%= link_to root_path do  %>
+                            <a href="#">
                                 <i class="fa fa-tachometer-alt"></i>
-                                <span>  Dashboard</span>
-                            <% end %>
+                                <span>DASHBOARD</span>
+                                <span class="badge badge-pill badge-danger">New</span>
+                            </a>
                         </li>
                         <li class="sidebar-dropdown">
-                            <a href="javascript:ReplaceContentInContainer('dashrender','fieldrender')">
+                            <a href="#">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>  Fields</span>
-
+                                <span>FIELDS</span>
+                                <span class="badge badge-pill badge-primary"><%= @fields.count  %></span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                      <%= link_to new_club_field_path(@club) do  %>
-                                       New Field
-                                        <% end %>
+                                        <a href="#">Add a new field</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Fields</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="sidebar-dropdown">
-                            <a href="javascript:ReplaceContentInContainer('dashrender','calendarrender')">
+                            <a href="#">
                                 <i class="fas fa-calendar-alt"></i>
-                                <span>  Calendar</span>
+                                <span>CALENDAR</span>
                             </a>
 
                         </li>
 
-                        <li class="header-menu" >
+                        <li class="header-menu">
                             <span>Account</span>
                         </li>
                         <li>
-                            <%= link_to destroy_user_session_path, method: :delete do  %>
+                            <a href="#">
                                 <i class="fas fa-user-circle"></i>
-                                <span style="font-size:14px;">  Log-out</span>
-                            <% end %>
+                                <span>Log-out</span>
+                            </a>
                         </li>
                         <li>
-                            <%= link_to new_club_field_path(@club) do %>
+                            <a href="#">
                                 <i class="fas fa-plus"></i>
-                                <span style="font-size:14px;">  Add a new field</span>
-                            <% end %>
+                                <span>Add a new field</span>
+                            </a>
                         </li>
                         <li>
-                            <%= link_to clubs_path  do %>
+                            <a href="#">
                                 <i class="fas fa-list-ul"></i>
-                                <span style="font-size:14px;">  Browse clubs</span>
-                              <% end %>
+                                <span>Browse clubs</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -94,45 +90,52 @@ container.innerHTML = document.getElementById(content).innerHTML;
             <!-- sidebar-content  -->
         </nav>
         <!-- sidebar-wrapper  -->
+           <script type="text/javascript"><!--
+          function ReplaceContentInContainer(id,content) {
+          var container = document.getElementById(id);
+          container.innerHTML = content;
+          }
+          //--></script>
         <main class="page-content" id="dashrender">
            <!-- page-wrapper -->
+
+
             <!--DASHBOARD ITEM CARD-->
-              <div>
                       <div class="container dashcontainer">
                         <div class="row">
                             <div class="col-md-3">
                               <div class="card-item">
-                                  <i class="fas fa-dollar-sign ic a" style="font-size: 18px;"></i>
+                                  <i class="fas fa-dollar-sign ic a"></i>
                                   <h1 class="title">€<%= @this_week_revenue  %></h1>
-                                  <p style="font-size: 14px">WEEK REVENUE</p>
+                                  <p>WEEK REVENUE</p>
                               </div>
                         </div>
 
                         <div class="col-md-3">
                           <div class="card-item">
-                              <i class="fas fa-chart-bar ic b" style="font-size: 18px;"></i>
+                              <i class="fas fa-chart-bar ic b"></i>
                               <% if @last_week_revenue != 0 %>
                               <h1 class="title"><%= (@last_week_revenue - @this_week_revenue)/(@last_week_revenue *100)  %>%</h1>
                               <% else %>
                             <h1>No info available</h1>
                               <% end %>
-                              <p style="font-size: 12px">REVENUE DIFFERENCE</p>
+                              <p>REVENUE DIFFERENCE</p>
                           </div>
                         </div>
 
                         <div class="col-md-3">
                           <div class="card-item">
-                              <i class="fas fa-dollar-sign ic c" style="font-size: 18px;"></i>
+                              <i class="fas fa-dollar-sign ic c"></i>
                               <h1 class="title">€<%= @total %></h1>
-                              <p style="font-size: 12px">PROJECTED REVENUE</p>
+                              <p>PROJECTED REVENUE</p>
                           </div>
                         </div>
 
                         <div class="col-md-3">
                           <div class="card-item">
-                              <i class="fas fa-user-plus ic d" style="font-size: 18px;"></i>
+                              <i class="fas fa-user-plus ic d"></i>
                               <h1 class="title"><%= @upcoming_events.count  %></h1>
-                              <p style="font-size: 12px">TOTAL BOOKINGS</p>
+                              <p>TOTAL BOOKINGS</p>
                           </div>
                         </div>
 
@@ -178,67 +181,6 @@ container.innerHTML = document.getElementById(content).innerHTML;
             <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
             </div>
 
-        </div>
         </main>
         <!-- page-content" -->
     </div>
-
-<!------------------FIELDS RENDERING------------------------>
-<div id="fieldrender" style = "display:none">
-
-        <div class="row">
-      <% num = 1 %>
-      <% @fields.each do |f| %>
-        <!----PANEL UNIT---->
-        <div class="col-sm-4">
-        <div class="panel panel-default">
-        <!----STORING EVENTS FOR THIS FIELD----->
-        <% if f.events #Check if a field has events
-            @upcoming_events = []
-            f.events.each do |e|
-              if e.start_date > DateTime.now
-                @upcoming_events << e
-              end
-            end
-          @next_event = @upcoming_events.first
-          if @next_event #check if next is not nil
-            t = @next_event.start_date
-            et = @next_event.end_date
-          end %>
-
-        <!----END STORING EVENTS FOR THIS FIELD--->
-        <div class="panel-heading fieldcardtitle">
-          <h2>Field <%= num %></h2> <% num += 1 %>
-          <p><%= f.field_type %></p>
-        </div>
-        <div class="panel-body fieldcard">
-            <% if @next_event #check if next event is not nil %>
-            <ul>
-              <p><b>next reservation:</b>  <%= t.hour %>:<%= t.min  %><%= "0" if t.min == 0 %> - <%= t.day %>/<%= t.month %>/<%= t.year%> </p>
-              <p><i class="fas fa-male"></i>   <%= @next_event.user.email  %></p>
-              <p><i class="far fa-clock"></i>   <%= (et.to_i - t.to_i )/3600 %> hours</p>
-              <p><i class="fas fa-dollar-sign"></i>   €<%= ((et.to_i - t.to_i )/3600)*f.price.to_i %></p>
-
-            <% else %>
-              <p style= "height: 130px">There are no upcoming reservations on this field yet</p>
-            <% end %>
-
-            </div>
-          </div>
-        </div>
-
-
-        <!----PANEL END----->
-          <% end  %>
-        <% end %>
-</div>
-</div>
-
-<!---------------END FIELD RENDERING----------->
-<!--------------------CALENDAR RENDER------------->
-<div id="calendarrender" style = "display: none">
-  <div id="calendar" data-target="<%= @events %>" style="display:none">
-</div>
-<!-----END CALENDAR RENDER-------------------->
-
-
