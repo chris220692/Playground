@@ -2,14 +2,16 @@ class ClubsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @clubs = Club.all
+    # @club = Club.find(params[:id])
     @fields = Field.all
+    find_field
 
     if params[:name].present?
       @clubs = @clubs.where("name ILIKE ?", "%#{params[:name]}%")
     end
 
-    if params[:adress].present?
-      @clubs = @clubs.where("address ILIKE ?", "%#{params[:adress]}%")
+    if params[:city].present?
+      @clubs = @clubs.where("city ILIKE ?", "%#{params[:city]}%")
     end
 
     @markers = @clubs.map do |club|
@@ -71,6 +73,24 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.require(:club).permit(:name, :address, :photo)
+    params.require(:club).permit(:name, :address, :city, :photo, :club_id)
+  end
+
+  def find_field
+    if params[:field_type].present?
+    @fields = @fields.where(field_type: params[:field_type])
+    end
+
+    if params[:club_city].present?
+
+    end
+
+    if params[:start_date]
+
+    end
+
+    if params[:end_date]
+
+    end
   end
 end
