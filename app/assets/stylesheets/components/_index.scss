@@ -9,6 +9,7 @@
 @import "avatar";
 @import "message";
 @import "search_bar";
+@import "review";
 
 
 .container{
@@ -19,7 +20,7 @@
 }
 body {
   margin: 0;
-  margin-bottom: 100px;
+  margin-bottom: 0px;
   font-family: 'Varela Round', sans-serif;
 }
 .text-center {

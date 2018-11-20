@@ -35,17 +35,6 @@ function sideBar() {
 
 sideBar();
 
-$(function () {
-$('#calendar').fullCalendar({
-  events: '/calendar_events',
-  header:{
-    left: "month,agendaWeek, agendaDay",
-    center: "title",
-    right: "today, prevYear,prev,next,nextYear"
-  }
-});
-})
-
 
 
 
@@ -62,3 +51,14 @@ var divelement = document.getElementById(id);
 document.getElementById('hide-calendar').addEventListener('click', function() { toggle_div_hide('calendar') })
 
 
+
+$(function () {
+$('#calendar').fullCalendar({
+  events: '/calendar_events',
+  header:{
+    left: "month,agendaWeek, agendaDay",
+    center: "title",
+    right: "today, prevYear,prev,next,nextYear"
+  }
+});
+})

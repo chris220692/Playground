@@ -1,7 +1,7 @@
 
 
     <div class="profile-header-wrapper">
-      <div class="container profile-header-container text-center" style="margin-top: 0px">
+      <div class="container profile-header-container text-center" style="margin-top: 0px, margin-left: auto, margin-right: auto">
         <div class="profile-header-infos">
           <%= cl_image_tag @player.photo,height: 200, width: 200, crop: :fill, crop: :thumb %>
           <h1> <%= @player.first_name %></h1>
@@ -27,10 +27,6 @@
           </div>
         </div>
       </div>
-
-      <%= link_to "back", user_players_path(current_user), class: "btn btn-primary" %>
-
-
     </div>
   <div class="banner text-center" style="color: black; height: 140px">
   <h3> "<%= @player.description %>"</h3>
@@ -40,8 +36,17 @@
   <script id="isrunning" src="http://127.0.0.1:4001/isrunning" type="text/javascript"></script>
   <div class="text-center" style="margin-bottom: 15px">
   <% if policy(@player).edit? %>
-  <%= link_to "Update", edit_user_player_path(current_user, @player), class: "btn btn-primary" %>
+  <%= link_to "Update", edit_user_player_path(current_user, @player), class: "btn btn-primary profile_button_update" %>
   <% end %>
+  <%= link_to "Back to partners", user_players_path(current_user), class: "btn btn-primary profile_button_update"%>
+  </div>
+    <div class="banner profile-header-wrapper-reservations">
+      <div class="container profile-header-container text-center" style="margin-top: 0px">
+        <div class="profile-header-infos">
+
+        </div>
+      </div>
+    </div>
   </div>
 
 

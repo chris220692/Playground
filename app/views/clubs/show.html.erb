@@ -1,6 +1,5 @@
 <div class="container">
 
-  <h1>CLUBS/SHOW</h1>
   <p id="notice"><%= notice %></p>
   <p><strong>About this Club</strong></p>
   <ul>
@@ -8,8 +7,10 @@
   <div class="cards-container">
     <div class="row">
       <div class="col-xs-12 col-md-6">
-        <strong><%= link_to @club.name, club_path(@club) %></strong>
-        <li><%= @club.address %></li>
+        <h1><%= link_to @club.name, club_path(@club) %></h1>
+        <p><li> Adress : <%= @club.address %>
+          <br><%= @club.address %></br></li>
+        </p>
 
         <% if @club.reviews.count > 0 %>
           <% a = [] %>
@@ -17,7 +18,7 @@
             <%  a << r.rating %>
           <% end %>
         <%= link_to club_reviews_path(@club) do %>
-          <li>average rating:</li>
+          <li> Average rating:</li>
           <% b = a.inject{ |sum, el| sum + el } / a.size %>
             <% b.times do %>
               <i class="fas fa-star"></i>

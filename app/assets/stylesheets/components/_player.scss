@@ -45,6 +45,12 @@ background-size: cover;
   max-width: 900px;
   margin: 0 auto;
 }
+.profile-header-container{
+margin-left: auto;
+margin-right: auto;
+margin-top: 0px;
+}
+
 .profile-header-infos {
   padding: 20px 0;
 }
@@ -76,5 +82,16 @@ background-size: cover;
 }
 .tab:last-child {
   border-radius: 0 10px 0 0;
+}
+.profile_button_update
+{
+margin-right: 20px !important;
+width: 200px;
+}
+.profile-header-wrapper-reservations
+{
+background-color: #2E8B57 !important;
+height: 60vh !important;
+margin-bottom: 0px;
 }
 

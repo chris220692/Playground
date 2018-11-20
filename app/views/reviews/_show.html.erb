@@ -1,8 +1,15 @@
-<p>
-  <strong><%= review.user.player.try(:first_name) %> <%= review.user.player.try(:last_name) %></strong> has commented :
-  <p>"<%= review.comment %>"</p>
-  <p>Rating :
-    <% review.rating.times do %>
-    <i class="fas fa-star"></i>
-    <% end %>
-</p>
+
+  <div class="review">
+    <div class="col-xs-12 col-sm-4">
+  <%= review.user.player.try(:first_name).capitalize %>
+  <%= review.user.player.try(:last_name).capitalize %>
+  <% review.rating.times do %>
+
+    <i class="fas fa-star"></i></li>
+  "<%= review.comment %>"
+  <% end %>
+  </div>
+
+</div>
+
+
