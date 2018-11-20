@@ -1,0 +1,24 @@
+
+
+
+<div class="container">
+  <ul class="timeline">
+    <li>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title"><%= f.user.club.name %></h4>
+          <p><small class="text-muted"> <% ratings = f.user.club.reviews.map do |review| %>
+              <% review.rating %>
+            <% end %>
+            <% (ratings.sum/ratings.size).times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </small></p>
+        </div>
+        <div class="timeline-body">
+          <p><%= f.user.club.address %></p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
