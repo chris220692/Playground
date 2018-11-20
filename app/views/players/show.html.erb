@@ -4,10 +4,13 @@
       <div class="container profile-header-container text-center" style="margin-top: 0px, margin-left: auto, margin-right: auto">
         <div class="profile-header-infos">
           <%= cl_image_tag @player.photo,height: 200, width: 200, crop: :fill, crop: :thumb %>
-          <h1> <%= @player.first_name %></h1>
-          <h2><%= @player.last_name %></</h2>
+          <h1 class="text-capitalize"> <%= @player.first_name %></h1>
+          <h2 class="text-capitalize"> <%= @player.last_name %></</h2>
           <h3><%= @player.phone_number %></h3>
           <h3><%= @player.birth_date %></h3>
+          <div class="social_network_links">
+          <i class="fab fa-instagram"></i><i class="fab fa-facebook-square"></i><i class="fab fa-twitter"></i>
+        </div>
         </div>
         <div class="tabs">
           <div class="tab">
@@ -40,14 +43,16 @@
   <% end %>
   <%= link_to "Back to partners", user_players_path(current_user), class: "btn btn-primary profile_button_update"%>
   </div>
-    <div class="banner profile-header-wrapper-reservations">
+    <div class="profile-header-wrapper-reservations">
       <div class="container profile-header-container text-center" style="margin-top: 0px">
         <div class="profile-header-infos">
         <div class="row">
+          <h1> Bookings </h1>
           <% @events.each do |e| %>
           <div class="col-xs-12 col-sm-4">
-            <div class="card">
-              <%= e.start_date %>
+            <div class="card reservations_cards" style="padding-top: 40px">
+              <p class="player_profile_reservations_cards text-uppercase"><%= e.title  %></p>
+              <p class="player_profile_reservations_cards"><%= e.start_date %></p>
             </div>
           </div>
           <% end %>

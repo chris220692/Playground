@@ -1,11 +1,11 @@
 .message {
   display: flex;
   align-items: center;
-  border-left: 1px solid grey;
-  border-bottom: 1px solid grey;
-  border-right: 1px solid grey;
-  border-top: 1px solid grey;
   padding: 10px;
+  border-radius: 2px;
+  background: rgba(91, 155, 155, 0.8);
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 1);
+  color: white;
   /* Your turn to design a flexbox message */
 }
 .message h3 {
@@ -21,7 +21,7 @@
   justify-content: space-around;
   font-size: 12px;
   margin: 0px;
-  color: grey;
+  color: white;
 }
 
 .message-name {
