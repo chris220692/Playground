@@ -72,7 +72,7 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.require(:club).permit(:name, :address, :photo, :club_id)
+    params.require(:club).permit(:name, :address, :city, :photo, :club_id)
   end
 
   def find_field
