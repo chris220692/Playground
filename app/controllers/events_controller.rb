@@ -24,12 +24,11 @@ class EventsController < ApplicationController
   end
 
   def events_to_calendar
-    @user = current_user
-    @club = @user.club
+    @club = current_user.club
     @fields = @club.fields
     array_return = []
     @fields.each do |field|
-      @events = current_user.club.events
+      @events = field.events
       @events.each do |ev|
         array_return << { "title" => "field #{ev.field.id}", "start" => ev.start_date.to_datetime.to_s, "end" => ev.end_date.to_datetime.to_s}
       end
