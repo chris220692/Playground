@@ -8,6 +8,7 @@
           <h2><%= @player.last_name %></</h2>
           <h3><%= @player.phone_number %></h3>
           <h3><%= @player.birth_date %></h3>
+          <%= link_to 'Send a Message',new_conversation_path(@conversations), class: "btn btn-success" %>
         </div>
         <div class="tabs">
           <div class="tab">

@@ -1,51 +1,53 @@
+      <div class="wrapper">
         <div class="row">
-          <div class="back">
-          <%= cl_image_tag @club.photo, crop: :fill %>
+          <div class="col-xs-12 col-md-8">
+            <%= cl_image_tag @club.photo, height: 600 %>
+
+            <div class="fiche-club">
+              <h1><%= @club.name.capitalize %></h1>
+              <h2> Adress : <%= @club.address %></h2>
+              <% if @club.reviews.count > 0 %>
+                <% a = [] %>
+                <% @club.reviews.each do |r|  %>
+                  <%  a << r.rating %>
+                <% end %>
+                <%= link_to club_reviews_path(@club) do %>
+                  <li> Average rating:</li>
+                  <% b = a.inject{ |sum, el| sum + el } / a.size %>
+                  <% b.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+
           </div>
+          <div class="col-xs-8 col-md-4">
+            <div id="map">
+            </div>
         </div>
 
-
-        <div class="fiche-club">
-        <h1><%= link_to @club.name, club_path(@club) %></h1>
-        <h2> Adress : <%= @club.address %></h2>
-          <% if @club.reviews.count > 0 %>
-          <% a = [] %>
-          <% @club.reviews.each do |r|  %>
-          <%  a << r.rating %>
-          <% end %>
-          <%= link_to club_reviews_path(@club) do %>
-            <li> Average rating:</li>
-            <% b = a.inject{ |sum, el| sum + el } / a.size %>
-            <% b.times do %>
-          <i class="fas fa-star"></i>
-          <% end %>
+      <div class="row">
+        <div class="col-xs-12 col-md-8">
+        <h2><%= @club.name %> has <%= pluralize @club.reviews.size, "review" %></h2>
+        <% if @club.reviews.blank? %>
+          Be the first to leave a review for <%= @club.name %>
+        <% else %>
+          <% @club.reviews.each do |review| %>
+            <%= render 'reviews/show', review: review %>
           <% end %>
         <% end %>
+        <div class="form">
+          <%= render 'reviews/form', club: @club, review: @review %>
+        </div>
       </div>
-
-
-     <!--   <div id="map" class="clubs-index"
-        data-markers="<%= @markers.to_json %>"
-        data-spy="affix" data-offset-top="197"> -->
-
-
-    <h2><%= @club.name %> has <%= pluralize @club.reviews.size, "review" %></h2>
-
-      <% if @club.reviews.blank? %>
-      Be the first to leave a review for <%= @club.name %>
-      <% else %>
-      <% @club.reviews.each do |review| %>
-      <%= render 'reviews/show', review: review %>
-      <% end %>
-      <% end %>
-
-    <%= render 'reviews/form', club: @club, review: @review %>
+      </div>
 
       <%= link_to "Edit", edit_club_path(@club),class: "btn btn-primary" %>
       <%= link_to "fields", club_fields_path(@club), class: "btn btn-primary" %>
       <%= link_to "Back", clubs_path, class: "btn btn-primary" %>
 
-
+    </div>
 
 
 
