@@ -17,9 +17,7 @@
       <!-- Links when user is a player -->
       <% if @user.is_player %>
 
-        <% if current_user.player.nil? %>
-
-        <% else %>
+        <% unless current_user.player.nil? %>
           <%= link_to "Browse Clubs", clubs_path, class: "navbar-wagon-item navbar-wagon-link" %>
           <%= link_to "Find a partner", user_players_path(@user), class: "navbar-wagon-item navbar-wagon-link" %>
           <%= link_to "About", clubs_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -28,7 +26,6 @@
         <!-- Avatar with dropdown menu -->
         <div class="navbar-wagon-item">
           <div class="dropdown">
-
             <% if current_user.player.nil? %>
               <div id="navbar-wagon-menu" class="avatar dropdown-toggle" style="width:40px" data-toggle="dropdown"><i class="fas fa-user-circle"></i></div>
 
@@ -40,7 +37,7 @@
                   <% if current_user.player.id  %>
                   <%= link_to user_player_path(current_user, current_user.player) do %>
                     <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-                  <% end %>
+                    <% end %>
                   <% end %>
 
                 </li>
