@@ -6,6 +6,8 @@
   height: 100vh;
   position: sticky !important; /* !important to override Gmaps inline CSS */
   top: Opx;
+  border-radius: 10px;
+
 }
 .mapboxgl-popup {
   max-width: 200px;

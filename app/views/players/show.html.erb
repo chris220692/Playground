@@ -1,4 +1,6 @@
-
+<%= content_for :title do  %>
+Players - Playgrounds
+<% end %>
 
     <div class="profile-header-wrapper">
       <div class="container profile-header-container text-center" style="margin-top: 0px, margin-left: auto, margin-right: auto">
@@ -8,9 +10,13 @@
           <h2 class="text-capitalize"> <%= @player.last_name %></</h2>
           <h3><%= @player.phone_number %></h3>
           <h3><%= @player.birth_date %></h3>
+
           <div class="social_network_links">
           <i class="fab fa-instagram"></i><i class="fab fa-facebook-square"></i><i class="fab fa-twitter"></i>
         </div>
+
+          <%= link_to 'Send a Message',new_conversation_path(@conversations), class: "btn btn-success" %>
+
         </div>
         <div class="tabs">
           <div class="tab">

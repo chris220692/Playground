@@ -1,3 +1,7 @@
+<%= content_for :title do  %>
+Players - Playgrounds
+<% end %>
+
 <div class="container">
   <h1> Find a player </h1>
 
@@ -61,7 +65,16 @@
             <div class="card-category">Rating</div>
             <div class="card-description">
               <h2><%= p.first_name %> <%= p.last_name %></h2>
-              <p>Tennis: <%= p.tennis_level %>|Squash: <%= p.squash_level %>|Padel: <%= p.padel_level %></p>
+              <p><% unless p.tennis_level == "" %>
+                Tennis: <%= p.tennis_level  %>
+                <% end %>
+                <% unless p.squash_level == "" %>
+                |Squash: <%= p.squash_level %>
+                <% end %>
+                <% unless p.padel_level == "" %>
+                |Padel: <%= p.padel_level %>
+                <% end %>
+                </p>
             </div>
             <%= cl_image_tag p.photo, height: 400, width: 400, crop: :fill, crop: :thumb, gravity: :face, class: "card-user" %>
           </div>
