@@ -53,7 +53,6 @@ Players - Playgrounds
       <p><%= submit_tag 'Search', class: 'btn btn-primary'%></p>
     </div>
   <% end %>
-    <p><%= link_to 'Home', root_path, class: "btn btn-primary" %></p>
 </div>
 
   <div class="container">
@@ -63,7 +62,7 @@ Players - Playgrounds
           <%= link_to user_player_path(current_user, p) do %>
           <div class="card_players text-center" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));">
             <div class="card-category">Rating</div>
-            <div class="card-description">
+            <div class="card-description" style=" left: 110px">
               <h2><%= p.first_name %> <%= p.last_name %></h2>
               <p><% unless p.tennis_level == "" %>
                 Tennis: <%= p.tennis_level  %>

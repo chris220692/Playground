@@ -5,6 +5,7 @@ class ClubsController < ApplicationController
     # @club = Club.find(params[:id])
     @fields = Field.all
     find_field
+    @event = Event.create(club)
 
     if params[:name].present?
       @clubs = @clubs.where("name ILIKE ?", "%#{params[:name]}%")
@@ -73,7 +74,7 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.require(:club).permit(:name, :address, :city, :photo, :club_id)
+    params.require(:club).permit(:name, :address, :city, :photo, :club_id, :start_date, :end_date)
   end
 
   def find_field
