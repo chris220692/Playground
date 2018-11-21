@@ -22,17 +22,15 @@
   padding: 9px !important;
   overflow: hidden !important;
 }
-.club-card:hover {
-  position: relative;
-  height: 200px;
-}
-
 
 #card-clubs-index {
   display: table !important;
   width: 100% !important;
   height: 100% !important;
   border-spacing: 0px !important;
+}
+#card-clubs-index:hover {
+  box-shadow: 5px 10px #888888;
 }
 
 .card-photo-club {
