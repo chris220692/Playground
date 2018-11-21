@@ -15,7 +15,7 @@
                 <p><%= select_tag :field_type,
                   options_for_select(["Tennis", "Squash", "Padel"]),
                   class: "form-control",
-                  placeholder: "Field type" %>
+                  prompt: "Field type" %>
                 </p>
               </div>
               <div class="col-xs-12 col-md-3">
@@ -32,24 +32,11 @@
                   placeholder: "Club" %>
                 </p>
               </div>
-
-              <div class="col-xs-12 col-md-3">
-                <p><%= datetime_local_field_tag :start_date,
-                  params[:start_date],
-                  class: "form-control",
-                  placeholder: "When?"%>
-                </p>
-                <p><%= datetime_local_field_tag :end_date,
-                  params[:end_date],
-                  class: "form-control",
-                  placeholder: "When?" %>
+              <div class="col-xs-12 col-md-3 search-bar-club" style="right: 0px;">
+                <p>
+                  <%= submit_tag 'Search', class: 'btn btn-primary' %>
                 </p>
               </div>
-            </div>
-            <div class="col-xs-12 col-md-3 search-bar-club" style="right: 0px;">
-              <p>
-                <%= submit_tag 'Search', class: 'btn btn-primary' %>
-              </p>
             </div>
           <% end %>
         </div>
@@ -86,9 +73,6 @@
                         <% end %>
                       <% end %>
                   </div>
-                  <div class="card-content-city">
-                    <h3><%= f.club.city %></h3>
-                  </div>
 
                   <div class="field-sport">
                     <% if f.field_type == "Tennis" %>
@@ -100,12 +84,15 @@
                     <% end %>
                   </div>
 
-                  <div class="card-content-address">
-                    Addresse: <%= f.club.address %>
+                  <div class="card-content-city">
+                    City: <%= f.club.city %>
                   </div>
 
                   <div class="card-content-price">
-                    Price: <%= f.price %> €</p>
+                    <p>Price: <%= f.price %> €</p>
+                  </div>
+                  <div class="card-content-address">
+                    <p>Address: <%= f.club.address %></p>
                   </div>
                   <button type="button" class="btn btn-primary corner-right-bottom" data-toggle="modal"  data-target="#exampleModal">
                     Book your court
@@ -114,6 +101,8 @@
                   <%= render "shared/popupevent", club: f.club, field: f, event: Event.new %>
                 </div>
               </div>
+
+
             </div>
           <% end %>
         </div>

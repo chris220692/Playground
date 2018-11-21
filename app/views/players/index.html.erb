@@ -9,6 +9,7 @@ Players - Playgrounds
 
     <%= form_tag user_players_path, method: :get do %>
 
+
       <div class="col-xs-12 col-sm-2">
         <p><%= text_field_tag :first_name,
           params[:first_name],
@@ -57,6 +58,7 @@ Players - Playgrounds
     <% end %>
       <p><%= link_to 'Home', root_path, class: "btn btn-primary" %></p>
   </div>
+
 
     <div class="container">
       <div class="row">
