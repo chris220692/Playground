@@ -55,9 +55,12 @@
   color: black;
   position: relative;
   margin-bottom: 20px;
-  box-shadow: 2px 2px 9px 0px rgba(0,0,0,0.4);
+  box-shadow: 2px 2px 16px 16px rgba(0,0,0,0.4);
   background-color: white;
   border-radius: 2%;
+}
+.card_players:hover {
+background-color: #D0D0D0;
 }
 
 .card-user {
@@ -120,9 +123,15 @@
   margin-bottom: 20px;
   box-shadow: 2px 2px 9px 0px rgba(0,0,0,0.4);
   padding-top: 20px;
+  margin-right: 40px;
+  margin-left: 40px;
+  text-align: center;
+  background-color: #2E8B57 !important;
 }
-.card_home_hover:hover {
+.card_home_page:hover {
   opacity: 5;
   font-weight: lighter;
   box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
 }
+
+
