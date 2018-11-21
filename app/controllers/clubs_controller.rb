@@ -14,7 +14,8 @@ class ClubsController < ApplicationController
     @markers = @clubs.map do |club|
       {
         lng: club.longitude,
-        lat: club.latitude
+        lat: club.latitude,
+        infoWindow: { content: render_to_string(partial: "/clubs/map_box", locals: { club: club }) }
       }
     end
     policy_scope(Player)
