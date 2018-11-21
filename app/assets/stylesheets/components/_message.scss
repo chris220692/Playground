@@ -1,4 +1,4 @@
-.message {
+.message_conversations {
   display: flex;
   align-items: center;
   padding: 10px;
@@ -6,17 +6,17 @@
   background: rgba(91, 155, 155, 0.8);
   box-shadow: 0 0px 20px rgba(0, 0, 0, 1);
   color: white;
-  /* Your turn to design a flexbox message */
+  /* Your turn to design a flexbox message_conversations */
 }
-.message h3 {
+.message_conversations h3 {
   font-size: 15px;
   margin: 10px;
 }
-.message h6 {
+.message_conversations h6 {
   font-size: 12px;
   margin: 0px;
 }
-.message p {
+.message_conversations p {
   align-items: center;
   justify-content: space-around;
   font-size: 12px;
@@ -56,4 +56,15 @@
 }
 #declined {
   color: red;
+}
+
+.banner_conversations {
+  color: white;
+  text-align: center;
+  min-height: calc(100vh - 70px);
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
