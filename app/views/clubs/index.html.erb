@@ -65,7 +65,7 @@
                 <div class="card-photo-club">
                   <div class="card-photo-club2">
                     <div class="card-photo-club3">
-                      <div class="card-photo-background-club" id="card-clubs-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path f.user.club.photo %>'); width: 100%; height: 100%;" >
+                      <div class="card-photo-background-club" id="card-clubs-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path f.club.photo %>'); width: 100%; height: 100%;" >
                       </div>
                     </div>
                   </div>
@@ -75,7 +75,7 @@
                     <h4><%= f.user.club.name %></h4>
                   </div>
                   <div class="card-content-rating">
-                    <% ratings = f.user.club.reviews.map do |review| %>
+                    <% ratings = f.club.reviews.map do |review| %>
                         <% review.rating %>
                       <% end %>
                       <% if ratings == [] %>
@@ -87,7 +87,7 @@
                       <% end %>
                   </div>
                   <div class="card-content-city">
-                    <h3><%= f.user.club.city %></h3>
+                    <h3><%= f.club.city %></h3>
                   </div>
 
                   <div class="field-sport">
@@ -101,7 +101,7 @@
                   </div>
 
                   <div class="card-content-address">
-                    Addresse: <%= f.user.club.address %>
+                    Addresse: <%= f.club.address %>
                   </div>
 
                   <div class="card-content-price">
@@ -111,7 +111,7 @@
                     Book your court
                   </button>
 
-                  <%= render "shared/popupevent", club: f.user.club, field: f, event: Event.new %>
+                  <%= render "shared/popupevent", club: f.club, field: f, event: Event.new %>
                 </div>
               </div>
             </div>
