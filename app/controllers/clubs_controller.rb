@@ -2,8 +2,12 @@ class ClubsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @clubs = Club.all
-    # @club = Club.find(params[:id])
     @fields = Field.all
+    # @user = current_user
+    # @field = Field.find(params[:field_id])
+    # @event = Event.new(params[:id])
+    # @event.save
+    # @club = Club.find(params[:club_id])
     find_field
 
     if params[:name].present?
@@ -75,6 +79,7 @@ class ClubsController < ApplicationController
   def club_params
     params.require(:club).permit(:name, :address, :city, :photo, :club_id)
   end
+
 
   def find_field
     if params[:field_type].present?
