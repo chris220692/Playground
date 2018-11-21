@@ -10,6 +10,10 @@ class PlayersController < ApplicationController
       @players = @players.where(last_name: params[:last_name])
     end
 
+    if params[:gender].present?
+      @players = @players.where(gender: params[:gender])
+    end
+
     if params[:tennis_level].present?
       @players = @players.where(tennis_level: params[:tennis_level])
     end
