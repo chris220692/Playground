@@ -107,7 +107,11 @@
                   <div class="card-content-price">
                     Price: <%= f.price %> €</p>
                   </div>
-                  <%= link_to "Book your court", new_club_field_event_path(current_user.club, f), class: "btn btn-primary corner-right-bottom" %>
+                  <button type="button" class="btn btn-primary corner-right-bottom" data-toggle="modal"  data-target="#exampleModal">
+                    Book your court
+                  </button>
+
+                  <%= render "shared/popupevent", club: f.user.club, field: f, event: Event.new %>
                 </div>
               </div>
             </div>
