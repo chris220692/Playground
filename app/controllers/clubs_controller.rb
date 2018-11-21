@@ -9,15 +9,6 @@ class ClubsController < ApplicationController
     # @event.save
     # @club = Club.find(params[:club_id])
     find_field
-
-    if params[:name].present?
-      @clubs = @clubs.where("name ILIKE ?", "%#{params[:name]}%")
-    end
-
-    if params[:city].present?
-      @clubs = @clubs.where("city ILIKE ?", "%#{params[:city]}%")
-    end
-
     @markers = @clubs.map do |club|
       {
         lng: club.longitude,
@@ -37,10 +28,10 @@ class ClubsController < ApplicationController
     @review = Review.new
 
     @markers =
-      [{
-        lng: @club.longitude,
-        lat: @club.latitude
-      }]
+    [{
+      lng: @club.longitude,
+      lat: @club.latitude
+    }]
     authorize @club
   end
 
@@ -80,22 +71,37 @@ class ClubsController < ApplicationController
     params.require(:club).permit(:name, :address, :city, :photo, :club_id)
   end
 
-
   def find_field
-    if params[:field_type].present?
-    @fields = @fields.where(field_type: params[:field_type])
+    if params[:field_type].present? && !params[:field_type].blank?
+      @fields1 = @fields.where(field_type: params[:field_type])
+      @fields = @fields1.map{|f| f}
+    end
+     p params[:name].present?
+     p params[:name].blank?
+    if params[:name].present? && !params[:name].blank?
+      @clubs1 = @clubs.where("name ILIKE ?", "%#{params[:name]}%")
+      @clubs1_fields = @clubs1.map {|c| c.fields }
+      p "clubs field 1"
+      p @clubs1_fields.flatten
+      p "fields found bt rype"
+      p @fields
+      p "juncion "
+      p @fields && @clubs1_fields
+      @fields.nil? ? @fields = @clubs1_fields : @fields = @fields && @clubs1_fields
+      p @clubs1_fields
+      p @fields
     end
 
-    if params[:club_city].present?
+    if params[:city].present? && !params[:city].blank?
+      @clubs2 = @clubs.where("city ILIKE ?", "%#{params[:city]}%")
+      @clubs2_fields = @clubs2.map {|c| c.fields }
+      @fields.nil? ? @fields = @clubs2_fields : @fields = @fields && @clubs2_fields
 
     end
+    @fields = @fields.flatten
+    p @clubs1
+    p @clubs2
 
-    if params[:start_date]
-
-    end
-
-    if params[:end_date]
-
-    end
   end
 end
+
