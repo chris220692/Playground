@@ -1,5 +1,5 @@
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1520992048127-03c7e5176a4e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0448927799c929e8f4f25f1b2be1c76c&auto=format&fit=crop&w=1401&q=80');" >
+<div class="banner_conversations" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1520992048127-03c7e5176a4e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0448927799c929e8f4f25f1b2be1c76c&auto=format&fit=crop&w=1401&q=80');" >
 
 <%= content_for :title do  %>
 Messages - Playgrounds
@@ -13,7 +13,7 @@ Messages - Playgrounds
       <% @conversations.each do |c| %>
 
         <div class="inbox">
-          <div class="message">
+          <div class="message_conversations">
             <div class="message-avatar">
                 <%= cl_image_tag c.receipts_for(current_user).last.message.sender.player.photo, width: 300, height: 300, crop: :thumb, gravity: :face, class: "avatar-m" %>
             </div>
