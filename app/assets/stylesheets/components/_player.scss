@@ -105,6 +105,9 @@ margin-right: 10px;
 background-color: #FFFAFA !important;
 opacity: 0.5 !important;
 }
-
-
+.banner_find_player{
+  min-height: calc(100vh - 70px);
+  background-size: cover !important;
+  width: 100%;
+}
 
