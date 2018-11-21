@@ -77,4 +77,11 @@
   color: black;
   position: relative;
   margin-bottom: 20px;
+  box-shadow: 2px 2px 9px 0px rgba(0,0,0,0.4);
+  padding-top: 20px;
+}
+.card_home_hover:hover {
+  opacity: 5;
+  font-weight: lighter;
+  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
 }
