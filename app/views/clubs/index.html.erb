@@ -73,9 +73,6 @@
                         <% end %>
                       <% end %>
                   </div>
-                  <div class="card-content-city">
-                    <h3><%= f.club.city %></h3>
-                  </div>
 
                   <div class="field-sport">
                     <% if f.field_type == "Tennis" %>
@@ -87,12 +84,15 @@
                     <% end %>
                   </div>
 
-                  <div class="card-content-address">
-                    Addresse: <%= f.club.address %>
+                  <div class="card-content-city">
+                    City: <%= f.club.city %>
                   </div>
 
                   <div class="card-content-price">
-                    Price: <%= f.price %> €</p>
+                    <p>Price: <%= f.price %> €</p>
+                  </div>
+                  <div class="card-content-address">
+                    <p>Address: <%= f.club.address %></p>
                   </div>
                   <button type="button" class="btn btn-primary corner-right-bottom" data-toggle="modal"  data-target="#exampleModal">
                     Book your court
@@ -101,6 +101,8 @@
                   <%= render "shared/popupevent", club: f.club, field: f, event: Event.new %>
                 </div>
               </div>
+
+
             </div>
           <% end %>
         </div>
