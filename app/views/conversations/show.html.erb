@@ -9,7 +9,7 @@
         <div class="col-sm-12">
         <div class="inbox">
           <% @conversation.receipts_for(current_user).each do |receipt| %>
-            <div class="message">
+            <div class="message_conversations">
               <div class="message-avatar">
                 <%= cl_image_tag receipt.message.sender.player.photo, width: 300, height: 300, crop: :thumb, gravity: :face, class: "avatar-m" %>
               </div>
