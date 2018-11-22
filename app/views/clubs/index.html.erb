@@ -89,12 +89,12 @@ Find your Playground
                 </div>
 
                 <div class="card-content-price">
-                  <p>Price: <%= f.price %> €</p>
+                  <p>Price: <%= f.price %> € / h</p>
                 </div>
                 <div class="card-content-address">
                   <p>Address: <%= f.club.address %></p>
                 </div>
-                <button type="button" class="btn btn-primary corner-right-bottom" style="margin-right: 158px;" data-toggle="modal"  data-target="#exampleModal">
+                <button type="button" class="btn btn-primary corner-right-bottom" style="margin-right: 158px;" data-toggle="modal"  data-target="#exampleModal2">
                   add review
                 </button>
                 <%= render "shared/popupreview", club: f.club, review: Review.new %>
