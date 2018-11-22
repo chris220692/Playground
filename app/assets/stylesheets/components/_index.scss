@@ -51,12 +51,16 @@ body {
   padding: 15px;
   margin: auto;
   text-align: left;
-  box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.8);
+  box-shadow: 4px 1px 3px rgba(128, 128, 128, 0.8);
   background-color: white;
+  border-radius: 2%;
 }
 .item
 {
 height: calc(100vh - 70px);
+}
+.btn{
+border-radius: 3%;
 }
 
 
