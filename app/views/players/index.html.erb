@@ -58,11 +58,11 @@ Players - Playgrounds
       </div>
       <div class="row">
         <% @players.each do |p| %>
-          <div class="col-xs-12 col-sm-6 col-md-4 margin-on-player-card" style="opacity: 0.8; border-radius: 10px;">
-            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+          <div class="col-xs-12 col-sm-4 col-md-4 margin-on-player-card" style="opacity: 0.8; border-radius: 10px;">
+            <div class="image-flip" ontouchstart="this.classList.toggle('hover');" style="margin-left: auto; margin-right: auto">
               <div class="mainflip">
                 <div class="frontside">
-                  <div class="card-player-index">
+                  <div class="card-player-index" style="margin: auto;">
                     <div class="card-body-player-index text-center">
                       <p><%= cl_image_tag p.photo, class: "img-fluid",height: 400, width: 400, crop: :fill, crop: :thumb, gravity: :face, alt: "card image" %></p>
                       <h4 class="card-title">
