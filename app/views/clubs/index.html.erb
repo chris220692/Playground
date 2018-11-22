@@ -58,7 +58,7 @@ Find your Playground
                 </div>
               </div>
               <div class="card-content-club">
-                <div class="card-category">
+                <div class="card-category ezpzfix">
                   <h4><%= f.user.club.name %></h4>
                 </div>
                 <div class="card-content-rating">
@@ -94,7 +94,11 @@ Find your Playground
                 <div class="card-content-address">
                   <p>Address: <%= f.club.address %></p>
                 </div>
-                <button type="button" class="btn btn-primary corner-right-bottom" data-toggle="modal"  data-target="#exampleModal">
+                <button type="button" class="btn btn-primary corner-right-bottom" style="margin-right: 158px;" data-toggle="modal"  data-target="#exampleModal">
+                  add review
+                </button>
+                <%= render "shared/popupreview", club: f.club, review: Review.new %>
+                <button type="button" class="btn btn-primary corner-right-bottom"" data-toggle="modal"  data-target="#exampleModal">
                   Book your court
                 </button>
                 <%= render "shared/popupevent", club: f.club, field: f, event: Event.new %>
