@@ -69,7 +69,7 @@ Find your Playground
                   <p>No rating</p>
                   <% else %>
                   <% (ratings.sum/ratings.size).times do %>
-                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star" style="color: #007b5e;"></i>
                   <% end %>
                   <% end %>
                 </div>
@@ -84,15 +84,15 @@ Find your Playground
                   <% end %>
                 </div>
 
+                <div class="card-content-address">
+                  <p>Address: <%= f.club.address %></p>
+                </div>
                 <div class="card-content-city">
                   City: <%= f.club.city %>
                 </div>
 
                 <div class="card-content-price">
                   <p>Price: <%= f.price %> €</p>
-                </div>
-                <div class="card-content-address">
-                  <p>Address: <%= f.club.address %></p>
                 </div>
                 <button type="button" class="btn btn-primary corner-right-bottom" style="margin-right: 158px;" data-toggle="modal"  data-target="#exampleModal">
                   add review
