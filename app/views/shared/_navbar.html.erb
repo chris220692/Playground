@@ -19,8 +19,8 @@
 
         <% unless current_user.player.nil? %>
 
-          <%= link_to "Browse Clubs", clubs_path, class: "navbar-wagon-item navbar-wagon-link" %>
-          <%= link_to "Find a partner", user_players_path(@user), class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "Browse Fields", clubs_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "Find an opponent", user_players_path(@user), class: "navbar-wagon-item navbar-wagon-link" %>
           <div class="navbar-wagon-item navbar-wagon-link" onclick="scrollWin(0, 1000)">About</div>
 
           <%= link_to "Messages", conversations_path, class: "navbar-wagon-item navbar-wagon-link" %>
