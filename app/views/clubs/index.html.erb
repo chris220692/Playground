@@ -3,7 +3,7 @@
 Find your Playground
 <% end %>
 
-<div class="main-container">
+<div class="main-container" style="min-height: 1250px">
   <div class="container clubs-container">
     <div class="row">
       <div class="col-xs-12">
@@ -92,9 +92,11 @@ Find your Playground
                 </div>
 
                 <div class="card-content-price">
-                  <p>Price: <%= f.price %> €</p>
+                  <p>Price: <%= f.price %> € / h</p>
                 </div>
+
                 <button type="button" class="btn btn-primary corner-right-bottom" style="margin-right: 158px;" data-toggle="modal"  data-target="#exampleModal">
+
                   add review
                 </button>
                 <%= render "shared/popupreview", club: f.club, review: Review.new %>

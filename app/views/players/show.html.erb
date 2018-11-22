@@ -64,7 +64,9 @@ Players - Playgrounds
           <div class="col-xs-12 col-sm-4">
             <div class="card reservations_cards" style="padding-top: 40px">
               <p class="player_profile_reservations_cards text-uppercase"><%= e.title  %></p>
-              <p class="player_profile_reservations_cards"><%= e.start_date %></p>
+              <p class="player_profile_reservations_cards">date: <%= e.start_date.month %>-<%= e.start_date.day %> | <%= e.start_date.hour %>:<%= e.start_date.min %> </p>
+
+              <p class="player_profile_reservations_cards">@ <%= e.field.club.name %> | Field nr: <%=e.field.id  %></p>
             </div>
           </div>
           <% end %>
