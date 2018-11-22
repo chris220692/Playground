@@ -11,16 +11,13 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [club, field, event] do |f| %>
-          <p>
-            <%= f.input :start_date, as: :datetime, start_year: Date.today.year,
-              end_year: Date.today.year + 1,
-              order: [:hour, :minute,:day, :month, :year], label: "When would you like to play?" %></p>
-          <p><%= f.input :end_date, as: :datetime, order: [:hour, :minute], label: "Untill" %>
-            <%= f.input :description, label: "Special requests"%></p>
-
-          <%= f.submit "Complete your reservation", class: 'btn btn-primary' %>
+        <%= simple_form_for [club, review] do |f|  %>
+        <%= f.error_notification %>
+        <%= f.input :rating %>
+        <%= f.input :comment %>
+        <%= f.submit "Create Review", class: "btn btn-success"%>
         <% end %>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
