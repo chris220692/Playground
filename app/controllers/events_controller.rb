@@ -7,20 +7,20 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    #authorize @event
+    # authorize @event
   end
 
   def new
     @user = current_user
     @field = Field.find(params[:field_id])
     @event = Event.new
-    #authorize @event
+    # authorize @event
     @club = Club.find(params[:club_id])
   end
 
   def edit
     @event = Event.find(params[:id])
-    #authorize @event
+    # authorize @event
   end
 
   def events_to_calendar
@@ -41,7 +41,7 @@ class EventsController < ApplicationController
     @user = current_user
     @field = Field.find(params[:field_id])
     @event = Event.new(event_params)
-    #authorize @event
+    # authorize @event
     @event.user = current_user
     @event.field = @field
     a = current_user.player.first_name, current_user.player.last_name
@@ -54,10 +54,9 @@ class EventsController < ApplicationController
     end
   end
 
-
   def update
     @event = Event.update(event_params)
-    #authorize @event
+    # authorize @event
     if @event.update(event_params)
       redirect_to profile_events_path(events), notice: 'Reservation was successfully updated.'
     else
@@ -72,13 +71,14 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:title, :description, :start_date, :end_date, :user_id, :field_id, :club_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def event_params
+    params.require(:event).permit(:title, :description, :start_date, :end_date, :user_id, :field_id, :club_id)
+  end
 end

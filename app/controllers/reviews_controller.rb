@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review.destroy
+    @review.destroys
   end
 
   private
