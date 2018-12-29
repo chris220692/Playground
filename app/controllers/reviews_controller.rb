@@ -1,4 +1,4 @@
- class ReviewsController < ApplicationController
+class ReviewsController < ApplicationController
   def index
     @reviews = Review.all
     @club = Club.find(params[:club_id])
@@ -10,9 +10,9 @@
   end
 
   def new
-     @club = Club.find(params[:club_id])
-     @user = current_user
-     @review = Review.new
+    @club = Club.find(params[:club_id])
+    @user = current_user
+    @review = Review.new
   end
 
   def create
