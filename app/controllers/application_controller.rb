@@ -4,12 +4,10 @@ class ApplicationController < ActionController::Base
   before_action :set_photo
   before_action :set_user
 
-  #before_action :authenticate_user!
+  # before_action :authenticate_user!
   include Pundit
-  #after_action :verify_authorized, except: :index, unless: :skip_pundit?
-  #after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
-
-
+  # after_action :verify_authorized, except: :index, unless: :skip_pundit?
+  # after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   def user_not_authorized
@@ -20,6 +18,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:is_player])
   end
@@ -29,17 +28,14 @@ class ApplicationController < ActionController::Base
   end
 
   def set_photo
-    if current_user && current_user.player
+    if current_user &.player
       @photo = current_user.player
-    elsif current_user && current_user.club
+    elsif current_user &.club
       @photo = current_user.club
-
     end
   end
 
   def set_user
     @user = current_user
   end
-
-
 end
